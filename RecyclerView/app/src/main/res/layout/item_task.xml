@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="9dp"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="10dp"
+    app:cardBackgroundColor="@color/paper_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Franja de prioridad + círculo "chincheta" -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="32dp">
+
+            <!-- Franja de color (fondo del FrameLayout, cambia color en el Adapter) -->
+            <View
+                android:id="@+id/viewBanner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/priority_high" />
+
+            <!-- Círculo "chincheta" — centrado sobre la franja, eleva sobre ella -->
+            <View
+                android:id="@+id/viewPriority"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center"
+                android:elevation="6dp"
+                android:background="@drawable/circle_red" />
+
+        </FrameLayout>
+
+        <!-- Contenido de la nota -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="14dp">
+
+            <!-- Textos (título + categoría) -->
+            <LinearLayout
+                android:id="@+id/llContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@id/btnDelete"
+                android:layout_centerVertical="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Título tarea"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#3E2723"
+                    android:maxLines="2"
+                    android:ellipsize="end" />
+
+                <TextView
+                    android:id="@+id/tvCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Categoría"
+                    android:textSize="13sp"
+                    android:textColor="#795548"
+                    android:layout_marginTop="4dp" />
+
+            </LinearLayout>
+
+            <!-- Botón eliminar (derecha, centrado) -->
+            <ImageButton
+                android:id="@+id/btnDelete"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_menu_delete"
+                android:tint="#B71C1C"
+                android:contentDescription="Eliminar tarea" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+
+
+
